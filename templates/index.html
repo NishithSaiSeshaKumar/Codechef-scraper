@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Excel File</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFDAB9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 50%;
+            margin: 100px auto;
+            background-color: #FFA07A;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h1 {
+            color: #FF8C00;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        label {
+            color: #FFFFFF;
+            font-weight: bold;
+        }
+        input[type="file"], input[type="text"], input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #FF4500;
+            color: #FFFFFF;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #FF6347;
+        }
+        p.error {
+            color: red;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Excel File</h1>
+        <form method="post" enctype="multipart/form-data">
+            <label for="file">Select Excel File:</label><br>
+            <input type="file" id="file" name="file"><br><br>
+            <label for="contest_no">Enter Contest Number:</label><br>
+            <input type="text" id="contest_no" name="contest_no" required><br><br>
+            <!-- take input for no of students -->
+            <label for="no_of_students">Enter No of Students:</label><br>
+            <!-- small font text next to label : first n students-->
+            <small>first n students</small>
+            <input type="text" id="no_of_students" name="no_of_students" required><br><br>
+            <input type="submit" value="Submit">
+        </form>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
+    
